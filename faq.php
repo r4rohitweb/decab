@@ -1,0 +1,72 @@
+<?php
+require_once __DIR__ . '/includes/config.php';
+$settings = getSettings($pdo);
+$faqs = getFaqs($pdo);
+$pageTitle = setting($settings, 'faq_hero_title', 'FAQ');
+require __DIR__ . '/includes/header.php';
+?>
+
+<section class="inner-hero">
+    <div class="container">
+        <div class="breadcrumb"><a href="index.php">Home</a><span>/</span><span>FAQ</span></div>
+        <h1><?= e(setting($settings, 'faq_hero_title', 'Frequently Asked Questions')) ?></h1>
+        <p><?= e(setting($settings, 'faq_hero_subtitle', 'Answers to common questions about ride enquiries, fare confirmation, contact process and service details.')) ?></p>
+    </div>
+</section>
+
+<main class="inner-page">
+    <section class="container inner-split">
+        <div>
+            <p class="eyebrow dark">Helpful answers</p>
+            <h2><?= e(setting($settings, 'faq_intro_title', 'Understand the enquiry process before you send your request')) ?></h2>
+            <p><?= e(setting($settings, 'faq_intro_text', 'We keep the public form short so customers can contact us quickly. The remaining ride details are confirmed through callback before the ride is accepted.')) ?></p>
+        </div>
+        <div class="highlight-box">
+            <h3>Still unsure?</h3>
+            <p>Send a message or ride enquiry and we will help you with the next step.</p>
+            <a href="contact.php" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <section class="container faq-list">
+        <?php if (!$faqs): ?>
+            <p style="text-align:center;">No FAQs yet.</p>
+        <?php endif; ?>
+        <?php foreach ($faqs as $f): ?>
+        <article class="faq-card">
+            <h3>Q. <?= e($f['question']) ?></h3>
+            <p><?= e($f['answer']) ?></p>
+        </article>
+        <?php endforeach; ?>
+    </section>
+
+    <section class="content-band light-band">
+        <div class="container value-grid">
+            <article class="value-card">
+                <span>Fast</span>
+                <h3>Short enquiry form</h3>
+                <p>Only basic details are needed first, so you can submit quickly.</p>
+            </article>
+            <article class="value-card">
+                <span>Clear</span>
+                <h3>Callback confirmation</h3>
+                <p>Important route and fare details are confirmed after discussion.</p>
+            </article>
+            <article class="value-card">
+                <span>Direct</span>
+                <h3>Contact support</h3>
+                <p>If you need more help, use the contact page or call directly.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="inner-cta">
+        <div class="container">
+            <h2>Have a ride in mind?</h2>
+            <p>Submit a quick enquiry and we will call you back.</p>
+            <a href="index.php#book" class="btn">Send Ride Enquiry</a>
+        </div>
+    </section>
+</main>
+
+<?php require __DIR__ . '/includes/footer.php'; ?>

@@ -1,0 +1,79 @@
+<?php
+require_once __DIR__ . '/includes/config.php';
+$settings = getSettings($pdo);
+$services = getServices($pdo);
+$pageTitle = setting($settings, 'services_hero_title', 'Our Services');
+require __DIR__ . '/includes/header.php';
+?>
+
+<section class="inner-hero">
+    <div class="container">
+        <div class="breadcrumb"><a href="index.php">Home</a><span>/</span><span>Services</span></div>
+        <h1><?= e(setting($settings, 'services_hero_title', 'Cab Services')) ?></h1>
+        <p><?= e(setting($settings, 'services_hero_subtitle', 'Flexible cab enquiry support for city travel, airport trips, hourly needs and outstation plans.')) ?></p>
+    </div>
+</section>
+
+<main class="inner-page">
+    <section class="container inner-split">
+        <div>
+            <p class="eyebrow dark">What we offer</p>
+            <h2><?= e(setting($settings, 'services_intro_title', 'Choose the service, share the details, and we confirm the ride')) ?></h2>
+            <p><?= e(setting($settings, 'services_intro_text', 'Every ride starts with a simple enquiry. You tell us where you want to start and add any travel notes.')) ?></p>
+        </div>
+        <div class="highlight-box">
+            <h3>Quick callback</h3>
+            <p>Use the enquiry form for any ride type. We will contact you before confirmation.</p>
+            <a href="index.php#book" class="btn">Send Enquiry</a>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container service-layout">
+            <div class="section-copy">
+                <p class="eyebrow dark">Ride types</p>
+                <h2>Services made for practical travel</h2>
+                <p>These are the most common trip types customers ask for. Add the exact details in the enquiry notes.</p>
+            </div>
+            <div class="service-list">
+                <?php foreach ($services as $i => $s): ?>
+                <article class="service-row">
+                    <div class="service-no"><?= str_pad((string)($i + 1), 2, '0', STR_PAD_LEFT) ?></div>
+                    <div>
+                        <h3><?= e($s['title']) ?></h3>
+                        <p><?= e($s['description']) ?></p>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-band light-band">
+        <div class="container value-grid">
+            <article class="value-card">
+                <span>City</span>
+                <h3>Daily local rides</h3>
+                <p>For office travel, shopping, appointments, station drops and regular city movement.</p>
+            </article>
+            <article class="value-card">
+                <span>Airport</span>
+                <h3>Pickup and drop</h3>
+                <p>Share flight time and luggage details so pickup can be planned properly.</p>
+            </article>
+            <article class="value-card">
+                <span>Trips</span>
+                <h3>Outstation planning</h3>
+                <p>Send destination, date and return plan in notes for a clear callback discussion.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="container long-content">
+        <h2>Before you send an enquiry</h2>
+        <p>For the fastest confirmation, include your drop location, preferred time, number of passengers, luggage details and whether it is a one-way or return trip inside the extra details field.</p>
+        <p>If your plan is not final yet, you can still send an enquiry. We will call you and help understand what information is needed before confirmation.</p>
+    </section>
+</main>
+
+<?php require __DIR__ . '/includes/footer.php'; ?>
