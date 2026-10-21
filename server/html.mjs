@@ -10,11 +10,11 @@ export async function render(view, data) {
   });
 }
 export function shell(title, content, admin = false) {
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} - DeCab</title><link rel="stylesheet" href="/assets/css/style.css">${admin ? '<script src="/assets/js/admin.js" defer></script>' : ''}</head><body>${admin ? adminNav() : ''}<main class="container" style="padding:32px 16px;max-width:1100px"><h1>${e(title)}</h1>${content}</main></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} - DeCab</title><link rel="stylesheet" href="/assets/css/style.css"><script src="/assets/js/site.js" defer></script>${admin ? '<script src="/assets/js/admin.js" defer></script>' : ''}</head><body>${admin ? adminNav() : ''}<main class="container" style="padding:32px 16px;max-width:1100px"><h1>${e(title)}</h1>${content}</main></body></html>`;
 }
 function adminNav() {
   const links = [['index', 'Enquiries'], ['cabs', 'Cabs'], ['services', 'Services'], ['faqs', 'FAQs'], ['sections', 'Homepage sections'], ['pages', 'Pages'], ['messages', 'Messages'], ['settings', 'Settings'], ['change-password', 'Password'], ['logout', 'Logout']];
-  return `<header class="site-header"><nav class="site-nav" style="flex-wrap:wrap;padding:20px"><a href="/">DeCab website</a>${links.map(([path, label]) => `<a href="/admin/${path}.php">${label}</a>`).join('')}</nav></header>`;
+  return `<header class="site-header admin-site-header"><div class="nav-shell"><a class="site-logo" href="/">DeCab website</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="admin-navigation" aria-label="Open navigation">Menu</button><nav class="site-nav" id="admin-navigation" aria-label="Admin navigation">${links.map(([path, label]) => `<a href="/admin/${path}.php">${label}</a>`).join('')}</nav></div></header>`;
 }
 export function field(name, value = '', { label = name.replaceAll('_', ' '), type = 'text', required = false, max = 20000, options } = {}) {
   const common = `name="${e(name)}" id="${e(name)}" ${required ? 'required' : ''}`;

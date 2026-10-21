@@ -5,7 +5,7 @@ const app = createApp();
 createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://localhost:8888');
-    const assets = { '/assets/css/style.css': 'text/css', '/assets/js/admin.js': 'text/javascript' };
+    const assets = { '/assets/css/style.css': 'text/css', '/assets/js/admin.js': 'text/javascript', '/assets/js/site.js': 'text/javascript' };
     if (Object.hasOwn(assets, url.pathname)) {
       res.setHeader('Content-Type', assets[url.pathname]);
       return res.end(await readFile('.' + url.pathname));
