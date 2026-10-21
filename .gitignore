@@ -1,0 +1,7 @@
+node_modules/
+dist/
+server/generated/
+.netlify/
+.env
+.env.*
+!.env.example

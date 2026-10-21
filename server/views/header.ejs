@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%- e(pageTitle ?? (settings['site_name'] ?? 'DeCab')) %></title>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="top-strip">
+        <span>Call: <%- e(settings['phone'] ?? '') %></span>
+        <span><%- e(settings['email'] ?? '') %></span>
+    </div>
+    <div class="nav-shell">
+        <a class="site-logo" href="/index.php">
+            <span class="mark">D</span>
+            <span class="brand-text"><%- e(settings['site_name'] ?? 'DeCab') %><small>Cab Service</small></span>
+        </a>
+        <nav class="site-nav">
+            <a href="/index.php">Home</a>
+            <a href="/about.php">About</a>
+            <a href="/services.php">Services</a>
+            <a href="/pricing.php">Fare Enquiry</a>
+            <a href="/faq.php">FAQ</a>
+            <a href="/contact.php">Contact</a>
+            <a class="nav-cta" href="/index.php#book">Ride Enquiry</a>
+        </nav>
+    </div>
+</header>

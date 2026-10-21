@@ -1,0 +1,42 @@
+<footer class="site-footer">
+    <div class="footer-cta">
+        <div>
+            <p class="eyebrow"><%- e(setting(settings, 'footer_cta_eyebrow', 'Need a cab?')) %></p>
+            <h2><%- e(setting(settings, 'footer_cta_title', 'Send an enquiry and get a quick callback.')) %></h2>
+        </div>
+        <a href="/index.php#book" class="btn">Ride Enquiry</a>
+    </div>
+
+    <div class="footer-main">
+        <div class="footer-brand">
+            <a class="site-logo footer-logo" href="/index.php">
+                <span class="mark">D</span>
+                <span class="brand-text"><%- e(settings['site_name'] ?? 'DeCab') %><small>Cab Service</small></span>
+            </a>
+            <p><%- e(setting(settings, 'about_short', 'Trusted local cab service for city rides, airport transfers and outstation trips.')) %></p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="/index.php">Home</a>
+            <a href="/services.php">Services</a>
+            <a href="/pricing.php">Fare Enquiry</a>
+            <a href="/contact.php">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p><b>Phone:</b> <%- e(settings['phone'] ?? '') %></p>
+            <p><b>Email:</b> <%- e(settings['email'] ?? '') %></p>
+            <p><b>Address:</b> <%- e(settings['address'] ?? '') %></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; <%- new Date().getFullYear() %> <%- e(settings['site_name'] ?? 'DeCab') %>. All rights reserved.</p>
+        <a href="/admin/login.php">Admin Login</a>
+    </div>
+</footer>
+
+</body>
+</html>

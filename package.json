@@ -1,0 +1,29 @@
+{
+  "name": "decab-netlify",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "predev": "npm run build",
+    "pretest": "npm run build",
+    "build": "node scripts/build.mjs",
+    "dev": "node --env-file-if-exists=.env scripts/dev.mjs",
+    "test": "node --test",
+    "db:setup": "node --env-file-if-exists=.env scripts/database.mjs setup",
+    "db:migrate": "node --env-file-if-exists=.env scripts/database.mjs migrate",
+    "admin:create": "node --env-file-if-exists=.env scripts/database.mjs admin"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.5",
+    "bcryptjs": "^3.0.2",
+    "ejs": "^3.1.10",
+    "mysql2": "^3.14.0",
+    "sanitize-html": "^2.18.1",
+    "sql.js": "^1.15.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

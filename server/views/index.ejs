@@ -1,0 +1,198 @@
+<%- include('header') %>
+
+
+<section class="home-hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <p class="eyebrow"><%- e(setting(settings, 'hero_eyebrow', 'Reliable local cab service')) %></p>
+            <h1><%- e(setting(settings, 'hero_title', 'Book Your Ride in Seconds')) %></h1>
+            <p class="hero-copy"><%- e(setting(settings, 'hero_subtitle', 'Send us your pickup, drop, date and time. We will call back quickly to confirm your cab.')) %></p>
+            <div class="hero-actions">
+                <a href="#book" class="btn">Send Ride Enquiry</a>
+                <a href="tel:<%- e(settings['phone'] ?? '') %>" class="btn btn-light">Call <%- e(settings['phone'] ?? '') %></a>
+            </div>
+        </div>
+        <div class="hero-panel">
+            <div class="panel-label">Quick enquiry</div>
+            <h2><%- e(setting(settings, 'home_panel_title', 'Share your trip details')) %></h2>
+            <p><%- e(setting(settings, 'home_panel_text', 'Tell us pickup, drop, date and time. We will call back with availability and fare.')) %></p>
+            <div class="panel-rate">
+                <span>City rides</span>
+                <span>Airport pickup & drop</span>
+                <span>Outstation enquiries</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats-strip">
+    <div class="container stats-grid">
+        <% getContent('stats').forEach((st) => { %>
+        <div class="stat-item">
+            <div class="stat-value"><%- e(st['svalue']) %></div>
+            <div class="stat-label"><%- e(st['label']) %></div>
+        </div>
+        <% }); %>
+    </div>
+</section>
+
+<main>
+    <section class="content-band">
+        <div class="container intro-layout">
+            <div>
+                <p class="eyebrow dark">Simple cab enquiry</p>
+                <h2><%- e(setting(settings, 'home_intro_title', 'Tell us your route. We confirm the ride.')) %></h2>
+                <p><%- e(setting(settings, 'about_short', 'Trusted local cab service for city rides, airport transfers and outstation trips.')) %></p>
+                <div class="mini-list">
+                    <span>City rides</span>
+                    <span>Airport transfer</span>
+                    <span>Outstation trips</span>
+                    <span>Hourly rental</span>
+                </div>
+            </div>
+            <div class="vehicle-card">
+                <div class="vehicle-top">
+                    <div>
+                        <p>Why enquire online?</p>
+                        <h3>Fast callback</h3>
+                    </div>
+                    <span class="badge available">Open</span>
+                </div>
+                <p>Send the route once and we will confirm fare, timing and availability by phone.</p>
+                <div class="rate-grid">
+                    <div><b>1</b><span>Send enquiry</span></div>
+                    <div><b>2</b><span>Get callback</span></div>
+                    <div><b>3</b><span>Confirm ride</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="container service-layout">
+            <div class="section-copy">
+                <p class="eyebrow dark">Services</p>
+                <h2><%- e(setting(settings, 'services_intro_title', 'Ride options for everyday travel')) %></h2>
+                <p><%- e(setting(settings, 'home_intro_text', 'Choose the type of trip you need and send the details. We review the route and call you back with confirmation.')) %></p>
+            </div>
+            <div class="service-list">
+                <% services.forEach((s, i) => { %>
+                <article class="service-row">
+                    <div class="service-no"><%- String(i + 1).padStart(2, '0') %></div>
+                    <div>
+                        <h3><%- e(s['title']) %></h3>
+                        <p><%- e(s['description']) %></p>
+                    </div>
+                </article>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-band light-band" id="how">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <% getContent('steps').forEach((step) => { %>
+                <div class="card step-card">
+                    <div class="step-no"><%- Number(step['step_no']) %></div>
+                    <h3><%- e(step['title']) %></h3>
+                    <p><%- e(step['description']) %></p>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-band" id="book">
+        <div class="container booking-layout">
+            <div class="booking-copy">
+                <p class="eyebrow dark">Ride enquiry</p>
+                <h2><%- e(setting(settings, 'enquiry_title', 'Share your trip details')) %></h2>
+                <p><%- e(setting(settings, 'enquiry_text', 'Submit your basic details and pickup location. We will call you to understand the trip and confirm the ride.')) %></p>
+                <div class="fare-chip">Fare is confirmed after route review</div>
+            </div>
+
+            <div class="card booking-form">
+                <% if (error) { %><div class="alert error"><%- e(error) %></div><% } %>
+                <% if (!vehicle) { %>
+                    <div class="alert error">No vehicle is available right now. Please call us directly.</div>
+                <% } else { %>
+                <form method="post">
+                    <%- csrfField() %>
+                    <div class="form-row">
+                        <div>
+                            <label>Your Name</label>
+                            <input type="text" name="name" value="<%- e(_POST['name'] ?? '') %>" required>
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input type="email" name="email" value="<%- e(_POST['email'] ?? '') %>" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div>
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone" value="<%- e(_POST['phone'] ?? '') %>" required>
+                        </div>
+                        <div>
+                            <label>Pickup Location</label>
+                            <input type="text" name="pickup" value="<%- e(_POST['pickup'] ?? '') %>" required>
+                        </div>
+                    </div>
+                    <label>Extra Details</label>
+                    <textarea name="notes" rows="4" placeholder="Drop location, date/time, luggage, return trip, or any special request"><%- e(_POST['notes'] ?? '') %></textarea>
+                    <button type="submit" class="btn">Send Enquiry</button>
+                </form>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-section" id="features">
+        <div class="container">
+            <div class="why-head">
+                <p class="eyebrow">Why choose us?</p>
+                <h2>Clear communication before every ride</h2>
+                <p>We keep the process simple: you send the route, we confirm the details, and the ride starts only after everything is clear.</p>
+            </div>
+            <div class="why-grid">
+                <% getContent('features').forEach((f) => { %>
+                <article class="why-item">
+                    <span><%- e(f['icon']) %></span>
+                    <h3><%- e(f['title']) %></h3>
+                    <p><%- e(f['description']) %></p>
+                </article>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-band testimonial-band" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testi-grid">
+                <% getContent('testimonials').forEach((t) => { %>
+                <div class="card testi-card">
+                    <div class="stars"><%- '&#9733;'.repeat(Math.max(1, Math.min(5, Number(t.rating)))) %></div>
+                    <p class="review">&quot;<%- e(t['review']) %>&quot;</p>
+                    <div class="who"><b><%- e(t['name']) %></b><%- t['city'] ? ' - ' + e(t['city']) : '' %></div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section class="container faq-preview">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <% faqs.slice(0, 3).forEach((f) => { %>
+        <div class="card" style="margin-bottom:12px;">
+            <h3 style="color:var(--dark);">Q. <%- e(f['question']) %></h3>
+            <p style="margin-top:8px;"><%- e(f['answer']) %></p>
+        </div>
+        <% }); %>
+        <p style="text-align:center;"><a href="/faq.php" class="btn" style="background:#2f80ed;color:#fff;">View All FAQs</a></p>
+    </section>
+</main>
+
+<%- include('footer') %>

@@ -1,0 +1,192 @@
+{
+  "site_name": {
+    "label": "Site Name",
+    "type": "text",
+    "default": "DeCab"
+  },
+  "phone": {
+    "label": "Contact Phone",
+    "type": "text",
+    "default": "9876543210"
+  },
+  "email": {
+    "label": "Contact Email",
+    "type": "text",
+    "default": "info@decab.com"
+  },
+  "address": {
+    "label": "Office Address",
+    "type": "textarea",
+    "default": "MG Road, Bengaluru"
+  },
+  "hero_eyebrow": {
+    "label": "Hero Small Text",
+    "type": "text",
+    "default": "Reliable local cab service"
+  },
+  "hero_title": {
+    "label": "Hero Title",
+    "type": "text",
+    "default": "Book Your Ride in Seconds"
+  },
+  "hero_subtitle": {
+    "label": "Hero Subtitle",
+    "type": "textarea",
+    "default": "Send us your pickup, drop, date and time. We will call back quickly to confirm your cab."
+  },
+  "home_panel_title": {
+    "label": "Hero Panel Title",
+    "type": "text",
+    "default": "Share your trip details"
+  },
+  "home_panel_text": {
+    "label": "Hero Panel Text",
+    "type": "textarea",
+    "default": "Tell us pickup, drop, date and time. We will call back with availability and fare."
+  },
+  "about_short": {
+    "label": "Homepage Short About",
+    "type": "textarea",
+    "default": "Trusted local cab service for city rides, airport transfers and outstation trips."
+  },
+  "home_intro_title": {
+    "label": "Homepage Intro Title",
+    "type": "text",
+    "default": "Tell us your route. We confirm the ride."
+  },
+  "home_intro_text": {
+    "label": "Homepage Intro Text",
+    "type": "textarea",
+    "default": "Choose the type of trip you need and send the details. We review the route and call you back with confirmation."
+  },
+  "enquiry_title": {
+    "label": "Enquiry Section Title",
+    "type": "text",
+    "default": "Share your trip details"
+  },
+  "enquiry_text": {
+    "label": "Enquiry Section Text",
+    "type": "textarea",
+    "default": "Submit your basic details and pickup location. We will call you to understand the trip and confirm the ride."
+  },
+  "about_hero_title": {
+    "label": "Hero Title",
+    "type": "text",
+    "default": "About DeCab"
+  },
+  "about_hero_subtitle": {
+    "label": "Hero Subtitle",
+    "type": "textarea",
+    "default": "A simple, local cab enquiry service built around clear communication, careful driving and quick callbacks."
+  },
+  "about_intro_title": {
+    "label": "Intro Title",
+    "type": "text",
+    "default": "Reliable cab support for everyday travel"
+  },
+  "about_intro_text": {
+    "label": "Intro Text",
+    "type": "textarea",
+    "default": "Our website is designed to make cab enquiries easy. You send your basic details, pickup location and travel notes. We review the request and call you back before confirming anything."
+  },
+  "about_highlight_title": {
+    "label": "Highlight Title",
+    "type": "text",
+    "default": "What makes us different?"
+  },
+  "about_highlight_text": {
+    "label": "Highlight Text",
+    "type": "textarea",
+    "default": "No complicated app flow, no hidden steps. A real person checks your enquiry and confirms the ride details with you."
+  },
+  "services_hero_title": {
+    "label": "Hero Title",
+    "type": "text",
+    "default": "Cab Services"
+  },
+  "services_hero_subtitle": {
+    "label": "Hero Subtitle",
+    "type": "textarea",
+    "default": "Flexible cab enquiry support for city travel, airport trips, hourly needs and outstation plans."
+  },
+  "services_intro_title": {
+    "label": "Intro Title",
+    "type": "text",
+    "default": "Choose the service, share the details, and we confirm the ride"
+  },
+  "services_intro_text": {
+    "label": "Intro Text",
+    "type": "textarea",
+    "default": "Every ride starts with a simple enquiry. You tell us where you want to start and add any travel notes."
+  },
+  "fare_hero_title": {
+    "label": "Hero Title",
+    "type": "text",
+    "default": "Fare Enquiry"
+  },
+  "fare_hero_subtitle": {
+    "label": "Hero Subtitle",
+    "type": "textarea",
+    "default": "Tell us your route and travel need. We confirm fare only after reviewing the trip details with you."
+  },
+  "fare_intro_title": {
+    "label": "Intro Title",
+    "type": "text",
+    "default": "No public rate confusion. We confirm after route review."
+  },
+  "fare_intro_text": {
+    "label": "Intro Text",
+    "type": "textarea",
+    "default": "Cab fares depend on pickup area, destination, travel time, waiting time, trip type and return plan."
+  },
+  "contact_hero_title": {
+    "label": "Hero Title",
+    "type": "text",
+    "default": "Contact Us"
+  },
+  "contact_hero_subtitle": {
+    "label": "Hero Subtitle",
+    "type": "textarea",
+    "default": "Have a question, ride request or service enquiry? Send a message and we will respond as soon as possible."
+  },
+  "contact_intro_title": {
+    "label": "Contact Box Title",
+    "type": "text",
+    "default": "We are here to help with your cab enquiry"
+  },
+  "contact_intro_text": {
+    "label": "Contact Box Text",
+    "type": "textarea",
+    "default": "Use the contact form for general questions, service details or ride-related support."
+  },
+  "faq_hero_title": {
+    "label": "Hero Title",
+    "type": "text",
+    "default": "Frequently Asked Questions"
+  },
+  "faq_hero_subtitle": {
+    "label": "Hero Subtitle",
+    "type": "textarea",
+    "default": "Answers to common questions about ride enquiries, fare confirmation, contact process and service details."
+  },
+  "faq_intro_title": {
+    "label": "Intro Title",
+    "type": "text",
+    "default": "Understand the enquiry process before you send your request"
+  },
+  "faq_intro_text": {
+    "label": "Intro Text",
+    "type": "textarea",
+    "default": "We keep the public form short so customers can contact us quickly. The remaining ride details are confirmed through callback before the ride is accepted."
+  },
+  "footer_cta_eyebrow": {
+    "label": "Footer CTA Small Text",
+    "type": "text",
+    "default": "Need a cab?"
+  },
+  "footer_cta_title": {
+    "label": "Footer CTA Title",
+    "type": "text",
+    "default": "Send an enquiry and get a quick callback."
+  }
+}
